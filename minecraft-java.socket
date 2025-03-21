@@ -1,0 +1,6 @@
+[Socket]
+ListenFIFO=%t/minecraft-java.stdin
+Service=minecraft-java.service
+
+[Install]
+WantedBy=multi-user.target

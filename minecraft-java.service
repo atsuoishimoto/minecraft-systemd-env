@@ -1,0 +1,21 @@
+[Unit]
+Description=Minecraft
+
+[Service]
+Type=exec
+User=ishimoto
+
+# 必要に応じてディレクトリ名を変更
+WorkingDirectory=/home/minecraft
+
+# 必要に応じてディレクトリ名を変更
+ExecStart=/bin/bash -c "cd neoforge; ./run.sh nogui"
+
+ExecStop=/bin/bash ./stop_minecraft.sh
+Sockets=minecraft-java.socket
+StandardInput=socket
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
